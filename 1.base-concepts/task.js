@@ -1,7 +1,7 @@
 function solveEquation(a, b, c) {
   let arr;
-  let x1;
-  let x2;
+  let x1=1;
+  let x2=1;
   let D = b ** 2 - 4 * a * c;
   if (D < 0) {
     arr = [];
