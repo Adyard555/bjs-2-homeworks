@@ -1,3 +1,4 @@
+// Задание 1
 function solveEquation(a, b, c) {
   let arr = [];
   let x1;
@@ -15,7 +16,7 @@ function solveEquation(a, b, c) {
   }
   return arr;
 }
-
+// Задание 2
 function calculateTotalMortgage(percent, contribution, amount, date) {
   let totalAmount;
   let percentTest = Number(percent);
