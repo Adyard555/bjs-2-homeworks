@@ -17,7 +17,6 @@ function validateCount(value) {
 console.log(parseCount(1));
 console.log(validateCount('n'));
 // Задание 2
-// Задание 2
 class Triangle {
    constructor(a, b, c) {
       if (((a + b) < c) || ((a + c) < b) || ((c + b) < a)) {
