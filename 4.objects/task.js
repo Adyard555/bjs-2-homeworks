@@ -24,7 +24,7 @@ Student.prototype.getAverage = function () {
   for (let i = 0; i < length; i++) {
     sum += this.marks[i];
   }
-  return Number((sum / length).toFixed(4));
+  return Number((sum / length).toFixed(1));
 }
 
 Student.prototype.exclude = function (reason) {
