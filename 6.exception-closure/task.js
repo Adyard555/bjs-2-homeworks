@@ -3,7 +3,7 @@ function parseCount(n) {
    if (!Number.parseInt(n, 10)) {
       throw new Error("Невалидное значение");
    }
-   return n;
+   return Number.parseInt(n, 10);
 }
 
 function validateCount(value) {
@@ -11,11 +11,12 @@ function validateCount(value) {
       return parseCount(value)
    }
    catch (err) {
-      return err.message;
+      return err;
    }
 }
 console.log(parseCount(1));
 console.log(validateCount('n'));
+// Задание 2
 // Задание 2
 class Triangle {
    constructor(a, b, c) {
@@ -26,9 +27,11 @@ class Triangle {
       this.b = b;
       this.c = c;
    }
+
    getPerimeter() {
       return this.a + this.b + this.c;
    }
+
    getArea() {
       const p = 0.5 * this.getPerimeter();
       return Number((p * (p - this.a) * (p - this.b) * (p - this.c)).toFixed(3));
@@ -40,11 +43,13 @@ function getTriangle(a, b, c) {
       return new Triangle(a, b, c);
    }
    catch (err) {
-      return "Ошибка! Треугольник не существует";
+      const dummyTriangle = new Object();
+      dummyTriangle.getArea = () => { return "Ошибка! Треугольник не существует"; };
+      dummyTriangle.getPerimeter = () => { return "Ошибка! Треугольник не существует"; };
+      return dummyTriangle;
    }
 }
-
 const Triangle1 = new Triangle(1, 2, 3);
 console.log(Triangle1.getPerimeter());
 console.log(Triangle1.getArea());
-console.log(getTriangle(1, 2, 3));
+console.log(getTriangle(1, 2, 4));
