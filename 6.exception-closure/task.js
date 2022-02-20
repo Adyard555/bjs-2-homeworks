@@ -1,9 +1,10 @@
 // Задание 1
 function parseCount(n) {
-   if (!Number.parseInt(n, 10)) {
+   let p = Number.parseInt(n, 10);
+   if (!p) {
       throw new Error("Невалидное значение");
    }
-   return Number.parseInt(n, 10);
+   return p;
 }
 
 function validateCount(value) {
