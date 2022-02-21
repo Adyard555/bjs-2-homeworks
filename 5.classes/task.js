@@ -213,6 +213,7 @@ class Student {
    addMark(mark, subject) {
       if (mark > 5 || mark < 1) {
          console.log("Ошибка, оценка должна быть числом от 1 до 5");
+         return;
       }
       this.Subjects[subject] ? this.Subjects[subject].push(mark) : this.Subjects[subject] = [mark];
    }
@@ -222,7 +223,7 @@ class Student {
          const sum = this.Subjects[subjectname].reduce((acc, mark) => acc + mark, 0);
          const length = this.Subjects[subjectname].length;
          console.log('Средний балл по предмету geometry ' + (sum / length));
-         return;
+         return (sum / length);
       }
       console.log("Несуществующий предмет");
    }
@@ -236,6 +237,7 @@ class Student {
          totalLength += this.Subjects[item].length;
       }
       console.log('Средний балл по всем предметам ' + (totalSum / totalLength));
+      return totalSum / totalLength;
    }
 
    exclude(reason) {
@@ -249,7 +251,7 @@ student.addMark(5, "algebra");
 student.addMark(5, "geometry");
 student.addMark(4, "geometry");
 student.addMark(6, "geometry"); // "Ошибка, оценка должна быть числом от 1 до 5"
-student.getAverageBySubject("geometry"); // Средний балл по предмету geometry 4.5
+// student.getAverageBySubject("geometry"); // Средний балл по предмету geometry 4.5
 student.getAverageBySubject("biology"); // Несуществующий предмет
 student.getAverage(); // Средний балл по всем предметам 4.75
 student.exclude("Исключен за попытку подделать оценки");
