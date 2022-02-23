@@ -42,12 +42,11 @@ class AlarmClock {
             this.alarmCollection.forEach(clock => checkClock(clock));
          }, 1000);
       }
-      return;
    }
    stop() {
       if (this.timerId !== null) {
          clearInterval(this.timerId);
-         return this.timerId = null;
+         return this.timerId;
       }
    }
    printAlarms() {
@@ -55,6 +54,6 @@ class AlarmClock {
    }
    clearAlarms() {
       this.stop();
-      return this.alarmCollection = [];
+      return this.alarmCollection;
    }
 }
