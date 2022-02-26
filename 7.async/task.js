@@ -1,3 +1,4 @@
+// Задание 1
 class AlarmClock {
    constructor() {
       this.alarmCollection = [];
@@ -42,18 +43,29 @@ class AlarmClock {
             this.alarmCollection.forEach(clock => checkClock(clock));
          }, 1000);
       }
+      return;
    }
    stop() {
       if (this.timerId !== null) {
          clearInterval(this.timerId);
-         return this.timerId;
+         return this.timerId = null;
       }
    }
    printAlarms() {
-      return this.alarmCollection.forEach(clock => console.log(clock.id + ': ' + clock.time));
+      console.log('Печать всех будильников в количестве: ' + this.alarmCollection.length);
+      return this.alarmCollection.forEach(clock => console.log("Будильник №" + clock.id + ' заведён на ' + clock.time));
    }
    clearAlarms() {
       this.stop();
-      return this.alarmCollection;
+      return this.alarmCollection = [];
    }
 }
+
+let phoneAlarm = new AlarmClock();
+phoneAlarm.addClock("09:00", () => console.log("Пopa вставать"), 1);
+phoneAlarm.addClock("09:01", () => { console.log("Дaвaй, вставай уже!"); phoneAlarm.removeClock(2) }, 2);
+// phoneAlarm. addClock( "09:01", () => console.log("Иди умываться!"));
+phoneAlarm.addClock("09:02", () => { console.log("Вставай, а то проспишь!"); phoneAlarm.clearAlarms(); phoneAlarm.printAlarms(); }, 3);
+phoneAlarm.addClock("09:05", () => console.log("Вставай, а то проспишь!"), 1);
+phoneAlarm.printAlarms();
+phoneAlarm.start();
